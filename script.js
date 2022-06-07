@@ -1,54 +1,69 @@
-// console.log("Hello World");
-
-// 3. Create a trainer object using object literals.
 let myPokemon = {
-		name: "Pikachu",
-		level: 3,
-		health: 100,
-		attack: 50,
-		tackle: function(){
-			console.log("This pokemon tackled targetpokemon ");
-			console.log("targetPokemon is reduced to newTargetPokemonHealth");
+		name: "Ash Ketchum",
+		age: 10,
+		pokemon:["Pikachu", "Charizard", "Squirtle", "Bulbasaur"],
+		friends:{
+			hoenn: ["May", "Max"],
+			kanto: ["Brock", "Misty"]
 		},
-		faint: function(){
-			console.log("Pokemon fainted");
-		}
+		talk: function(){
+			 console.log("Pikachu! I chose you!");
+			}
 	}
 	console.log(myPokemon);
-	// myPokemon.faint();
+	// console.log("Result of square bracket notation: " +myPokemon["name"]);
+	console.log("Result of dot notation: ")
+	console.log(myPokemon.name);
+	console.log("Result of square bracket notation: ");
+	console.log(myPokemon.pokemon);
+	console.log("Result of talk method ");
+	myPokemon.talk();
 
-/*
-	Object Constructor Notaion
-*/
-function Pokemon(name, level){
+function Pokemon(name, level, health, attack){
 	this.name = name;
 	this.level = level * 2; 
-	this.attack = level;
+	this.health = level * 4;
+	this.attack = level * 2;
 	// method
 	this.tackle = function(targetPokemon){
-					//pokemonObject
+					
 		console.log(this.name+ " tackled " +targetPokemon.name);
-
-		 // targetHealth  - pokemonAttack = newHealth
-		 // 16 - 16 = 0
-		console.log("targetPokemon is reduced to newTargetPokemonHealth");
-
-		// Call faint method if the target pokemon's health is less than or equal to zero.
-		targetPokemon.faint();
-	} 
-	this.faint = function(){
-		console.log(this.name+ " fainted ");
 	}
 }
 
-let pikachu = new Pokemon("Pikachu", 16);
+
+// 9.
+let pikachu = new Pokemon("Pikachu", 6);
 console.log(pikachu);
-/*
-	health = 32
-	level = 16
-*/
-let rattata = new Pokemon("Rattata", 8);
-console.log(rattata);
-  
-// pikachu.tackle(rattata);
-rattata.tackle(pikachu);
+
+let geodude = new Pokemon("Geodude", 4);
+console.log(geodude);
+
+let mewtwo = new Pokemon("Mewtwo", 50);
+console.log(mewtwo);
+
+geodude.tackle(pikachu);
+
+// 10. Create a tackle method that will subtract the health property of the target pokemon object with the attack property of the object that used the tackle method.
+
+let newTargetHealth = pikachu.health - geodude.attack;
+function printPokemon(targetPokemon){
+		if(true){
+			console.log("Pikachu health's is now reduced to " +newTargetHealth) 
+		}
+		}
+		printPokemon();
+
+
+
+			
+
+
+// 11. Create a faint method that will print out a message of targetPokemon has fainted.
+// this.faint = function(){
+// 		console.log(this.name+ " fainted ");
+
+// this.tackle = function(pikachu){
+// 					//pokemonObject
+// 		console.log("Pikachu's health is now reduced to " +this.health);
+// }
