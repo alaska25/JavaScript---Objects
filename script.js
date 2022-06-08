@@ -1,4 +1,4 @@
-let myPokemon = {
+let trainer = {
 		name: "Ash Ketchum",
 		age: 10,
 		pokemon:["Pikachu", "Charizard", "Squirtle", "Bulbasaur"],
@@ -6,17 +6,18 @@ let myPokemon = {
 			hoenn: ["May", "Max"],
 			kanto: ["Brock", "Misty"]
 		},
-		talk: function(){
-			 console.log("Pikachu! I chose you!");
-			}
+			talk: function(){
+	 		console.log(this.pokemon[0] + " I choose you!")
+	 		
+	 	}
 	}
-	console.log(myPokemon);
+	console.log(trainer);
 	console.log("Result of dot notation: ")
-	console.log(myPokemon.name);
+	console.log(trainer.name);
 	console.log("Result of square bracket notation: ");
-	console.log(myPokemon.pokemon);
+	console.log(trainer.pokemon);
 	console.log("Result of talk method ");
-	myPokemon.talk();
+	trainer.talk();
 
 function Pokemon(name, level, health, attack){
 	this.name = name;
@@ -41,10 +42,15 @@ console.log(mewtwo);
 
 geodude.tackle(pikachu);
 
-let newTargetHealth = pikachu.health - geodude.attack;
-function printPokemon(targetPokemon){
-		if(true){
-			console.log("Pikachu health's is now reduced to " +newTargetHealth) 
-		}
-		}
-		printPokemon();
+
+pikachu.health -= geodude.attack;
+	if(pikachu.health <= 0){
+		pikachu.faint();
+	}
+	else{
+		console.log(pikachu.name + "'s health is now reduced to " + pikachu.health);
+	}
+
+this.faint = function(){
+	console.log(this.name + " fainted ");
+	}
